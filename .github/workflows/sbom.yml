@@ -31,3 +31,17 @@ jobs:
         with:
           name: sbom-${{ github.sha }}
           path: sbom.cdx.json
+
+      - name: Upload SBOM to Dependency-Track
+        env:
+          DT_URL: ${{ secrets.DT_URL }}
+          DT_APIKEY: ${{ secrets.DT_APIKEY }}
+        run: |
+          apk add --no-cache curl
+          curl -sf \
+            --request PUT "$DT_URL/api/v1/bom" \
+            --header "X-Api-Key: $DT_APIKEY" \
+            --form "autoCreate=true" \
+            --form "projectName=${{ github.repository }}" \
+            --form "projectVersion=${{ github.ref_name }}" \
+            --form "bom=@sbom.cdx.json"
