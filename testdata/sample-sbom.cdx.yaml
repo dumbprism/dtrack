@@ -1,0 +1,242 @@
+$schema: "http://cyclonedx.org/schema/bom-1.6.schema.json"
+bomFormat: CycloneDX
+specVersion: "1.6"
+serialNumber: "urn:uuid:a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+version: 1
+
+metadata:
+  timestamp: "2026-04-14T06:00:00Z"
+  tools:
+    components:
+      - type: application
+        name: dtrack
+        version: "0.1.0"
+        author: arhantkotamraju
+  component:
+    bom-ref: "pkg:golang/github.com/example/webservice"
+    type: application
+    name: github.com/example/webservice
+    version: "1.4.2"
+    description: "REST API service for order management"
+
+components:
+  # ── Web framework ──────────────────────────────────────────────
+  - bom-ref: "pkg:golang/github.com/gin-gonic/gin@v1.9.1"
+    type: library
+    name: github.com/gin-gonic/gin
+    version: "v1.9.1"
+    purl: "pkg:golang/github.com/gin-gonic/gin@v1.9.1"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/github.com/bytedance/sonic@v1.9.1"
+    type: library
+    name: github.com/bytedance/sonic
+    version: "v1.9.1"
+    purl: "pkg:golang/github.com/bytedance/sonic@v1.9.1"
+    licenses:
+      - license:
+          id: Apache-2.0
+    properties:
+      - name: go:indirect
+        value: "true"
+
+  # ── Database ───────────────────────────────────────────────────
+  - bom-ref: "pkg:golang/gorm.io/gorm@v1.25.4"
+    type: library
+    name: gorm.io/gorm
+    version: "v1.25.4"
+    purl: "pkg:golang/gorm.io/gorm@v1.25.4"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/gorm.io/driver/postgres@v1.5.3"
+    type: library
+    name: gorm.io/driver/postgres
+    version: "v1.5.3"
+    purl: "pkg:golang/gorm.io/driver/postgres@v1.5.3"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/github.com/jackc/pgx/v5@v5.4.3"
+    type: library
+    name: github.com/jackc/pgx/v5
+    version: "v5.4.3"
+    purl: "pkg:golang/github.com/jackc/pgx/v5@v5.4.3"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "true"
+
+  # ── Authentication ─────────────────────────────────────────────
+  - bom-ref: "pkg:golang/github.com/golang-jwt/jwt/v5@v5.0.0"
+    type: library
+    name: github.com/golang-jwt/jwt/v5
+    version: "v5.0.0"
+    purl: "pkg:golang/github.com/golang-jwt/jwt/v5@v5.0.0"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/golang.org/x/crypto@v0.13.0"
+    type: library
+    name: golang.org/x/crypto
+    version: "v0.13.0"
+    purl: "pkg:golang/golang.org/x/crypto@v0.13.0"
+    licenses:
+      - license:
+          id: BSD-3-Clause
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  # ── Observability ──────────────────────────────────────────────
+  - bom-ref: "pkg:golang/go.uber.org/zap@v1.26.0"
+    type: library
+    name: go.uber.org/zap
+    version: "v1.26.0"
+    purl: "pkg:golang/go.uber.org/zap@v1.26.0"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/go.uber.org/multierr@v1.11.0"
+    type: library
+    name: go.uber.org/multierr
+    version: "v1.11.0"
+    purl: "pkg:golang/go.uber.org/multierr@v1.11.0"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "true"
+
+  - bom-ref: "pkg:golang/github.com/prometheus/client_golang@v1.17.0"
+    type: library
+    name: github.com/prometheus/client_golang
+    version: "v1.17.0"
+    purl: "pkg:golang/github.com/prometheus/client_golang@v1.17.0"
+    licenses:
+      - license:
+          id: Apache-2.0
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  # ── Configuration ──────────────────────────────────────────────
+  - bom-ref: "pkg:golang/github.com/spf13/viper@v1.17.0"
+    type: library
+    name: github.com/spf13/viper
+    version: "v1.17.0"
+    purl: "pkg:golang/github.com/spf13/viper@v1.17.0"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/github.com/spf13/cast@v1.6.0"
+    type: library
+    name: github.com/spf13/cast
+    version: "v1.6.0"
+    purl: "pkg:golang/github.com/spf13/cast@v1.6.0"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "true"
+
+  # ── Testing ────────────────────────────────────────────────────
+  - bom-ref: "pkg:golang/github.com/stretchr/testify@v1.8.4"
+    type: library
+    name: github.com/stretchr/testify
+    version: "v1.8.4"
+    purl: "pkg:golang/github.com/stretchr/testify@v1.8.4"
+    licenses:
+      - license:
+          id: MIT
+    properties:
+      - name: go:indirect
+        value: "false"
+
+  - bom-ref: "pkg:golang/github.com/davecgh/go-spew@v1.1.1"
+    type: library
+    name: github.com/davecgh/go-spew
+    version: "v1.1.1"
+    purl: "pkg:golang/github.com/davecgh/go-spew@v1.1.1"
+    licenses:
+      - license:
+          id: ISC
+    properties:
+      - name: go:indirect
+        value: "true"
+
+  - bom-ref: "pkg:golang/github.com/pmezard/go-difflib@v1.0.0"
+    type: library
+    name: github.com/pmezard/go-difflib
+    version: "v1.0.0"
+    purl: "pkg:golang/github.com/pmezard/go-difflib@v1.0.0"
+    licenses:
+      - license:
+          id: BSD-2-Clause
+    properties:
+      - name: go:indirect
+        value: "true"
+
+dependencies:
+  - ref: "pkg:golang/github.com/example/webservice"
+    dependsOn:
+      - "pkg:golang/github.com/gin-gonic/gin@v1.9.1"
+      - "pkg:golang/gorm.io/gorm@v1.25.4"
+      - "pkg:golang/gorm.io/driver/postgres@v1.5.3"
+      - "pkg:golang/github.com/golang-jwt/jwt/v5@v5.0.0"
+      - "pkg:golang/golang.org/x/crypto@v0.13.0"
+      - "pkg:golang/go.uber.org/zap@v1.26.0"
+      - "pkg:golang/github.com/prometheus/client_golang@v1.17.0"
+      - "pkg:golang/github.com/spf13/viper@v1.17.0"
+      - "pkg:golang/github.com/stretchr/testify@v1.8.4"
+
+  - ref: "pkg:golang/github.com/gin-gonic/gin@v1.9.1"
+    dependsOn:
+      - "pkg:golang/github.com/bytedance/sonic@v1.9.1"
+
+  - ref: "pkg:golang/gorm.io/driver/postgres@v1.5.3"
+    dependsOn:
+      - "pkg:golang/github.com/jackc/pgx/v5@v5.4.3"
+      - "pkg:golang/gorm.io/gorm@v1.25.4"
+
+  - ref: "pkg:golang/go.uber.org/zap@v1.26.0"
+    dependsOn:
+      - "pkg:golang/go.uber.org/multierr@v1.11.0"
+
+  - ref: "pkg:golang/github.com/spf13/viper@v1.17.0"
+    dependsOn:
+      - "pkg:golang/github.com/spf13/cast@v1.6.0"
+
+  - ref: "pkg:golang/github.com/stretchr/testify@v1.8.4"
+    dependsOn:
+      - "pkg:golang/github.com/davecgh/go-spew@v1.1.1"
+      - "pkg:golang/github.com/pmezard/go-difflib@v1.0.0"

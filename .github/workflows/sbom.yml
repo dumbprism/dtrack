@@ -1,0 +1,33 @@
+name: Generate CycloneDX SBOM
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+    container:
+      image: golang:alpine
+
+    steps:
+      # git and libc6-compat are required: git for checkout,
+      # libc6-compat so the Node.js-based Actions binaries run on musl libc.
+      - name: Install deps
+        run: apk add --no-cache git libc6-compat
+
+      - uses: actions/checkout@v4
+
+      - name: Generate SBOM
+        run: |
+          go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1
+          go mod vendor
+          cyclonedx-gomod mod -json -output sbom.cdx.json .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom-${{ github.sha }}
+          path: sbom.cdx.json
