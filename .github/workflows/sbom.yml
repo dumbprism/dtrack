@@ -38,8 +38,8 @@ jobs:
           DT_APIKEY: ${{ secrets.DT_APIKEY }}
         run: |
           apk add --no-cache curl
-          curl -s --fail-with-body \
-            --request PUT "$DT_URL/api/v1/bom" \
+          curl -v --fail-with-body \
+            --request POST "$DT_URL/api/v1/bom" \
             --header "X-Api-Key: $DT_APIKEY" \
             --form "autoCreate=true" \
             --form "projectName=${{ github.repository }}" \
